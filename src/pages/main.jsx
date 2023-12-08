@@ -65,10 +65,7 @@ export default function Main(props) {
    */
   function updateMessages(data) {
     let tempArray = listRef.current;
-    console.log(tempArray);
-
     Object.keys(tempArray).forEach((key) => {
-      console.log(key);
       if (key == data.room) {
         tempArray[key].lastMessage = data.message;
       }

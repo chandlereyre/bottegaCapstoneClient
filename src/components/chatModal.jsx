@@ -25,28 +25,37 @@ export default function chatModal({ toggleModal, setModal, modal }) {
   }
 
   function addRecipient() {
-    // TODO check if recipient is valid
-    axios({
-      url: "https://clumpusapi.duckdns.org/check-user",
-      method: "post",
-      data: { username: recipient },
-      withCredentials: true,
-    })
-      .then((response) => {
-        if (response.data == "user found") {
-          const tempArray = recipientArr;
-          tempArray.push(recipient);
-          setRecipientArr(tempArray);
-          setRecipient("");
-          setMessage("");
-        } else {
-          setMessage("User not found.");
-          setRecipient("");
-        }
+    let add = true;
+    for (var i = 0; i < recipientArr.length; i++) {
+      if (recipient == recipientArr[i]) {
+        setMessage("User already added!");
+        add = false;
+      }
+    }
+
+    if (add) {
+      axios({
+        url: "https://clumpusapi.duckdns.org/check-user",
+        method: "post",
+        data: { username: recipient },
+        withCredentials: true,
       })
-      .catch((err) => {
-        console.log("Error checking recipient: ", err);
-      });
+        .then((response) => {
+          if (response.data == "user found") {
+            const tempArray = recipientArr;
+            tempArray.push(recipient);
+            setRecipientArr(tempArray);
+            setRecipient("");
+            setMessage("");
+          } else {
+            setMessage("User not found.");
+            setRecipient("");
+          }
+        })
+        .catch((err) => {
+          console.log("Error checking recipient: ", err);
+        });
+    }
   }
 
   function createChat() {

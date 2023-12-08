@@ -16,7 +16,9 @@ export default function ChatList({ handleUpdateChat, chatList, getChats }) {
     return (
       <ChatPreview
         key={chatList[chat].with}
-        previewMessage={chatList[chat].lastMessage}
+        previewMessage={
+          chatList[chat].lastMessage ? chatList[chat].lastMessage : ""
+        }
         users={chatList[chat].with}
         handleUpdateChat={handleUpdateChat}
         profilePic={chatList[chat].profilePic}
@@ -29,11 +31,8 @@ export default function ChatList({ handleUpdateChat, chatList, getChats }) {
     <div className="chatlist-wrapper">
       <div className="top-bar">
         <p className="title">Messages</p>
-        <a className="icon">
-          <FontAwesomeIcon
-            icon="fa-solid fa-pen-to-square"
-            onClick={() => toggleModal(setModal, modal)}
-          />
+        <a className="icon" onClick={() => toggleModal(setModal, modal)}>
+          <FontAwesomeIcon icon="fa-solid fa-pen-to-square" />
         </a>
       </div>
       <div className="chatlist-divider"></div>
