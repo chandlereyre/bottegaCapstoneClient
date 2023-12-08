@@ -26,7 +26,7 @@ export default function Main(props) {
         .then((response) => {
           setMsgListChats(response.data);
 
-          webSocket = io("https://clumpusapi.duckdns.org");
+          webSocket = io("https://clumpusapi.duckdns.org/");
 
           webSocket.on("chatMessage", (data) => {
             console.log(data);
