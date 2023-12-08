@@ -38,7 +38,7 @@ export default function Chat({
     setIsLoading(true);
 
     axios({
-      url: "http://3.15.224.228/get-messages",
+      url: "https://clumpusapi.duckdns.org/get-messages",
       method: "post",
       data: {
         users: [username].concat(otherUsers),
@@ -63,7 +63,7 @@ export default function Chat({
       .then(() => {
         [username].concat(otherUsers).forEach((user) => {
           axios({
-            url: "http://3.15.224.228/get-profile-pic",
+            url: "https://clumpusapi.duckdns.org/get-profile-pic",
             method: "post",
             data: {
               username: user,
@@ -86,7 +86,7 @@ export default function Chat({
       });
 
     // socketio
-    const newSocket = io("ws://3.15.224.228");
+    const newSocket = io("https://clumpusapi.duckdns.org/");
 
     newSocket.emit("joinWithUsers", {
       users: [username].concat(otherUsers),
@@ -128,7 +128,7 @@ export default function Chat({
 
         setTimeout(() => {
           axios({
-            url: "http://3.15.224.228/get-messages",
+            url: "https://clumpusapi.duckdns.org/get-messages",
             method: "post",
             data: {
               users: [username].concat(otherUsers),

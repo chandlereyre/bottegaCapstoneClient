@@ -37,7 +37,7 @@ class App extends Component {
 
   handleSuccessfulLogout() {
     axios({
-      url: "http://3.15.224.228/auth/logout",
+      url: "https://clumpusapi.duckdns.org/auth/logout",
       method: "delete",
       withCredentials: true,
     }).then((response) => {
@@ -50,7 +50,7 @@ class App extends Component {
   checkLoginStatus() {
     axios.defaults.withCredentials = true;
     axios({
-      url: "http://3.15.224.228/auth/login",
+      url: "https://clumpusapi.duckdns.org/auth/login",
       method: "get",
       withCredentials: true,
     }).then((response) => {

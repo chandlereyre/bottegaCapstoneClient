@@ -16,7 +16,7 @@ export default function Profile({ username }) {
 
   function getProfileInfo() {
     axios({
-      url: "http://3.15.224.228/get-profile-info",
+      url: "https://clumpusapi.duckdns.org/get-profile-info",
       method: "post",
       data: {
         username: username,
@@ -27,7 +27,9 @@ export default function Profile({ username }) {
         setBio(response.data.bio);
         setFormUsername(response.data.username);
         response.data.profilePic != ""
-          ? setProfilePic("http://3.15.224.228/" + response.data.profilePic)
+          ? setProfilePic(
+              "https://clumpusapi.duckdns.org/" + response.data.profilePic
+            )
           : null;
       })
       .catch((err) => {
@@ -45,7 +47,7 @@ export default function Profile({ username }) {
 
   function handleSubmit() {
     axios({
-      url: "http://3.15.224.228/update-profile",
+      url: "https://clumpusapi.duckdns.org/update-profile",
       method: "post",
       data: { bio: bio, profilePic: profilePic },
       headers: {

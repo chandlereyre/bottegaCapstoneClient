@@ -45,7 +45,7 @@ export default class Signup extends Component {
     } else {
       axios({
         method: "post",
-        url: "http://3.15.224.228/create-account",
+        url: "https://clumpusapi.duckdns.org/create-account",
         data: {
           username: this.state.username,
           password: this.state.password,

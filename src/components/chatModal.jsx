@@ -27,7 +27,7 @@ export default function chatModal({ toggleModal, setModal, modal }) {
   function addRecipient() {
     // TODO check if recipient is valid
     axios({
-      url: "http://3.15.224.228/check-user",
+      url: "https://clumpusapi.duckdns.org/check-user",
       method: "post",
       data: { username: recipient },
       withCredentials: true,
@@ -51,7 +51,7 @@ export default function chatModal({ toggleModal, setModal, modal }) {
 
   function createChat() {
     axios({
-      url: "http://3.15.224.228/create-chat",
+      url: "https://clumpusapi.duckdns.org/create-chat",
       method: "post",
       data: {
         recipients: recipientArr,

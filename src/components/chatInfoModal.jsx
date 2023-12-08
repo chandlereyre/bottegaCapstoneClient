@@ -9,7 +9,7 @@ export default function ChatInfoModal({ userList, group }) {
     if (!group) {
       setIsLoading(true);
       axios({
-        url: "http://3.15.224.228/get-profile-info",
+        url: "https://clumpusapi.duckdns.org/get-profile-info",
         method: "post",
         data: { username: userList[1] },
         withCredentials: true,

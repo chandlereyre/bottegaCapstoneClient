@@ -19,14 +19,14 @@ export default function Main(props) {
 
     if (props.type == "home") {
       axios({
-        url: "http://3.15.224.228/get-chats",
+        url: "https://clumpusapi.duckdns.org/get-chats",
         method: "get",
         withCredentials: true,
       })
         .then((response) => {
           setMsgListChats(response.data);
 
-          webSocket = io("ws://3.15.224.228");
+          webSocket = io("https://clumpusapi.duckdns.org");
 
           webSocket.on("chatMessage", (data) => {
             console.log(data);
@@ -101,7 +101,7 @@ export default function Main(props) {
    */
   function getChats() {
     axios({
-      url: "http://3.15.224.228/get-chats",
+      url: "https://clumpusapi.duckdns.org/get-chats",
       method: "get",
       withCredentials: true,
     })

@@ -36,7 +36,7 @@ class Login extends Component {
   handleLogIn(event) {
     axios({
       method: "post",
-      url: "http://3.15.224.228/auth/login",
+      url: "https://clumpusapi.duckdns.org/auth/login",
       data: {
         username: this.state.username,
         password: this.state.password,

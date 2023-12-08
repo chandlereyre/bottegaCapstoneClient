@@ -27,10 +27,11 @@ export default function chatPreview({
     if (profilePic != "") {
       profilePicURL = profilePic;
     } else {
-      profilePicURL = "http://3.15.224.228/img/defaultProfilePic.png";
+      profilePicURL =
+        "https://clumpusapi.duckdns.org/img/defaultProfilePic.png";
     }
     if (group) {
-      profilePicURL = "http://3.15.224.228/img/defaultGroupPic.png";
+      profilePicURL = "https://clumpusapi.duckdns.org/img/defaultGroupPic.png";
     }
     return profilePicURL;
   }
