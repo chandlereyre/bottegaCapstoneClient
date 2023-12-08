@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Inter:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gabarito:wght@800&family=Inter:wght@400;500&family=Lato&display=swap");
+
+body {
+  margin: 0px;
+  font-family: "Lato", sans-serif;
+  background-color: $offWhite;
+}
+#root {
+  text-align: center;
+}
+
+.main-wrapper {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  position: fixed;
+  width: 100vw;
+}
+
+// general styles
+
+.loader {
+  border: 2px solid $lightGrey;
+  border-top: 2px solid $accent;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  animation: spin 2s linear infinite;
+  margin: auto;
+  margin-top: 10px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.title {
+  text-align: left;
+  font-weight: bold;
+  font-size: 2em;
+  line-height: 2.5em;
+  font-family: "Gabarito", sans-serif;
+}
+
+.group-title {
+  text-align: left;
+  font-weight: bold;
+  font-size: 1.5em;
+  line-height: 2.5em;
+  font-family: "Gabarito", sans-serif;
+}
+
+.home {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+}
+
+.input {
+  height: 2em;
+  border: none;
+  background-color: $lightGrey;
+  border-radius: 0.75em;
+  padding: 0.3em;
+  padding-left: 1em;
+  outline: none;
+  font-family: "Lato", sans-serif;
+}
+
+#profileUsername {
+  color: grey;
+}
+
+.main-filler {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  img {
+    height: 120px;
+    margin-bottom: 30px;
+  }
+  div {
+    color: $messageGrey;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-wrapper {
+    display: block;
+  }
+  .main-filler {
+    display: none;
+  }
+}

@@ -1,0 +1,115 @@
+.login-wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(0, 115, 214);
+  background: radial-gradient(
+    circle,
+    rgba(0, 115, 214, 1) 0%,
+    rgba(183, 242, 255, 1) 93%
+  );
+}
+
+.login-modal {
+  background-color: $offWhite;
+  padding: 1em 3em;
+  height: 25em;
+  width: 20em;
+  border-radius: 2em;
+  box-shadow: 20px 20px 100px 10px $shadow;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  z-index: 2;
+}
+
+.signup-modal {
+  padding-bottom: 2em;
+}
+
+.login-button {
+  border: none;
+  padding: 1em;
+  border-radius: 0.75em;
+  background-color: $accent;
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  font-size: 1em;
+  color: white;
+  transition: 0.05s;
+  &:hover {
+    cursor: pointer;
+    color: $buttonTransition;
+  }
+}
+
+.divider {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: $textGrey;
+}
+
+.line {
+  background-color: $lightGrey;
+  height: 1px;
+  width: 120px;
+}
+
+.link {
+  text-decoration: none;
+  color: $accent;
+}
+
+.modal-bg {
+  padding: 1em 3em;
+  height: 25em;
+  width: 20em;
+  border-radius: 2em;
+  position: absolute;
+  z-index: 1;
+}
+
+.signup-bg {
+  padding-bottom: 2em;
+  margin-right: 7em;
+  margin-bottom: 2em;
+  background-color: $background;
+}
+
+.login-bg {
+  margin-right: 7em;
+  margin-top: 2em;
+  background-color: $button;
+}
+
+.error-message {
+  color: red;
+  position: absolute;
+  margin: 60vh auto 0px auto;
+  z-index: 2;
+  background-color: $offWhite;
+  padding: 0px 1rem;
+  border-radius: 1rem;
+  font-weight: bold;
+  box-shadow: -5px 5px 40px $shadow;
+}
+
+.success-message {
+  color: #16ca4c;
+  position: absolute;
+  margin: 60vh auto 0px auto;
+  z-index: 2;
+  background-color: $offWhite;
+  padding: 0px 1rem;
+  border-radius: 1rem;
+  font-weight: bold;
+  box-shadow: -5px 5px 40px $shadow;
+}
+
+@media (max-width: 480px) {
+  .modal-bg {
+    display: none;
+  }
+}

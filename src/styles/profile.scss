@@ -1,0 +1,92 @@
+.profile-wrapper {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: static;
+  .inner-profile-wrapper {
+    width: 30rem;
+    height: 100vh;
+  }
+}
+
+.profile-picture {
+  height: 200px;
+  position: relative;
+  img {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.profile-item {
+  width: 100%;
+  height: 5rem;
+  .title {
+    line-height: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  input {
+    width: calc(100% - 1em);
+    height: 2.5rem;
+    font-size: 0.9rem;
+  }
+  textarea {
+    width: calc(100% - 1em);
+    height: 10rem;
+    font-size: 0.9rem;
+    padding: 1em 0.3rem;
+    padding-left: 1em;
+    resize: none;
+    font-family: "Lato", sans-serif;
+  }
+  button {
+    width: 8rem;
+  }
+}
+
+#profile-bio {
+  height: 17rem;
+}
+
+#profile-edit-icon {
+  color: white;
+  position: absolute;
+  right: 160px;
+  margin-top: 170px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 5px solid white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: $accent;
+  &:hover {
+    background-color: $background;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-wrapper {
+    width: 100vw;
+    padding: 0px;
+    padding-top: 7rem;
+    position: absolute;
+    overflow: hidden;
+    height: 700px;
+    left: 0;
+    .inner-profile-wrapper {
+      width: 22rem;
+    }
+  }
+  #profile-edit-icon {
+    right: 7em;
+  }
+}
