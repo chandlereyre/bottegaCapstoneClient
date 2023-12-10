@@ -13,8 +13,6 @@ export default function Main(props) {
   const listRef = useRef();
 
   useEffect(() => {
-    // props.type == "home" ? getChats() : null;
-
     let webSocket = null;
 
     if (props.type == "home") {
@@ -105,6 +103,7 @@ export default function Main(props) {
     })
       .then((response) => {
         setMsgListChats({ ...response.data });
+        listRef.current = response.data;
       })
       .catch((error) => {
         console.log("Error getting chats: ", error);
