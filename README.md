@@ -1,4 +1,4 @@
-# Bottega Capstone Front End
+# ClumpUs Front End
 
 Front end for my Capstone project for the Bottega FullStack Development Certificate.
 
