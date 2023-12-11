@@ -8,7 +8,7 @@
   justify-content: center;
   align-items: center;
   background-color: $shadow;
-  z-index: 4;
+  z-index: 9;
 }
 
 .chat-modal {
@@ -18,7 +18,7 @@
   background-color: $offWhite;
   border-radius: 1rem;
   padding: 1rem 2rem;
-  z-index: 5;
+  z-index: 15;
 }
 
 .modal-top-bar {
