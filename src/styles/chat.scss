@@ -1,5 +1,7 @@
 .chat-wrapper {
-  position: relative;
+  position: fixed;
+  margin-left: 280px;
+  width: calc(100% - 360px);
   display: grid;
   height: 100vh;
   grid-template-rows: 6rem 10fr 4rem;
