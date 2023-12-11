@@ -3,7 +3,7 @@ import "react-tooltip/dist/react-tooltip.css";
 import { React, Component } from "react";
 import axios from "axios";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import Main from "./pages/main";
+import Main from "./pages/mainPage";
 import Login from "./pages/login";
 import Signup from "./pages/signup";
 
