@@ -9,6 +9,7 @@ export default function Profile({ username }) {
   const [bio, setBio] = useState("");
   const [formUsername, setFormUsername] = useState("");
   const [message, setMessage] = useState("");
+  const [messageType, setMessageType] = useState("");
 
   useEffect(() => {
     getProfileInfo();
@@ -56,9 +57,14 @@ export default function Profile({ username }) {
       withCredentials: true,
     })
       .then(() => {
+        setMessageType("success");
         setMessage("Profile Updated!");
       })
       .catch((err) => {
+        setMessageType("error");
+        setMessage(
+          "There was an error updating your profile. Try a smaller picture!"
+        );
         console.log("Error updating profile: ", err);
       });
   }
@@ -75,8 +81,8 @@ export default function Profile({ username }) {
                 setProfilePic(dataURL);
               };
               reader.readAsDataURL(acceptedFiles[0]);
-              console.log(acceptedFiles[0]);
             }}
+            accept={{ "image/jpeg": [], "image/png": [], "image/jpg": [] }}
           >
             {({ getRootProps, getInputProps }) => (
               <section>
@@ -126,9 +132,15 @@ export default function Profile({ username }) {
         </div>
       </div>
       {message != "" ? (
-        <div className="success-message">
-          <p>{message}</p>
-        </div>
+        messageType == "success" ? (
+          <div className="success-message">
+            <p>{message}</p>
+          </div>
+        ) : (
+          <div className="error-message">
+            <p>{message}</p>
+          </div>
+        )
       ) : null}
     </div>
   );
