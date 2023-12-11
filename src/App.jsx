@@ -53,13 +53,17 @@ class App extends Component {
       url: "https://clumpusapi.duckdns.org/auth/login",
       method: "get",
       withCredentials: true,
-    }).then((response) => {
-      this.setState({
-        loggedInStatus: response.data.loggedIn,
-        isLoading: false,
-        username: response.data.username,
+    })
+      .then((response) => {
+        this.setState({
+          loggedInStatus: response.data.loggedIn,
+          isLoading: false,
+          username: response.data.username,
+        });
+      })
+      .catch((error) => {
+        console.log("Error checking login: ", error);
       });
-    });
   }
 
   componentDidMount() {
