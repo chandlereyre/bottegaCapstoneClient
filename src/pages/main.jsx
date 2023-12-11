@@ -26,9 +26,21 @@ export default function Main(props) {
 
           webSocket = io("https://clumpusapi.duckdns.org/");
 
+          webSocket.emit("joinWithRoom", {
+            room: props.username,
+          });
+
           webSocket.on("chatMessage", (data) => {
-            console.log(data);
             updateMessages(data);
+          });
+
+          webSocket.on("newMessage", (data) => {
+            getChats();
+            Object.keys(listRef.current).forEach((message) => {
+              webSocket.emit("joinWithRoom", {
+                room: message,
+              });
+            });
           });
 
           Object.keys(response.data).forEach((message) => {
