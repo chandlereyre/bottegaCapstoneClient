@@ -33,7 +33,7 @@ class Login extends Component {
     });
   }
 
-  handleLogIn(event) {
+  handleLogIn() {
     axios({
       method: "post",
       url: "https://clumpusapi.duckdns.org/auth/login",

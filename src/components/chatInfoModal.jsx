@@ -13,10 +13,14 @@ export default function ChatInfoModal({ userList, group }) {
         method: "post",
         data: { username: userList[1] },
         withCredentials: true,
-      }).then((response) => {
-        setBio(response.data.bio);
-        setIsLoading(false);
-      });
+      })
+        .then((response) => {
+          setBio(response.data.bio);
+          setIsLoading(false);
+        })
+        .catch((error) => {
+          console.log("Error getting information for this user: ", error);
+        });
     }
   }, []);
 

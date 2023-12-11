@@ -36,6 +36,10 @@ export default function chatPreview({
     return profilePicURL;
   }
 
+  /**
+   * Generates a name for a group chat
+   * @returns a string with the group chat name
+   */
   function groupChatName() {
     let chatName = "";
     if (users.length == 2) {

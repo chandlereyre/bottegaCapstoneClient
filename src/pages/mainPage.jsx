@@ -7,6 +7,9 @@ import Profile from "../components/profile";
 import Chat from "../components/chat";
 import logo from "../assets/chat.png";
 
+/**
+ * This is the main page for the chat app. It can represent the users home, where chats are created and set, or the users profile
+ */
 export default function Main(props) {
   const [activeChat, setActiveChat] = useState([]);
   const [msgListChats, setMsgListChats] = useState([]);
@@ -20,10 +23,12 @@ export default function Main(props) {
         url: "https://clumpusapi.duckdns.org/get-chats",
         method: "get",
         withCredentials: true,
-      })
+      }) // get all this user's chats
         .then((response) => {
           setMsgListChats(response.data);
+          listRef.current = response.data;
 
+          // websocket for updating chat preview messages
           webSocket = io("https://clumpusapi.duckdns.org/");
 
           webSocket.emit("joinWithRoom", {
@@ -34,9 +39,9 @@ export default function Main(props) {
             updateMessages(data);
           });
 
-          webSocket.on("newMessage", (data) => {
+          webSocket.on("newMessage", () => {
             getChats();
-            Object.keys(listRef.current).forEach((message) => {
+            Object.keys(msgListChats).forEach((message) => {
               webSocket.emit("joinWithRoom", {
                 room: message,
               });
@@ -48,8 +53,6 @@ export default function Main(props) {
               room: message,
             });
           });
-
-          listRef.current = response.data;
         })
         .catch((error) => {
           console.log("Error getting chats: ", error);
@@ -71,7 +74,6 @@ export default function Main(props) {
 
   /**
    * Updates chatList preview messages
-   * @param {*} data
    */
   function updateMessages(data) {
     let tempArray = listRef.current;
@@ -86,7 +88,6 @@ export default function Main(props) {
 
   /**
    * Opens a chat with a given user
-   * @param {*} users arr of potential users to chat with
    */
   async function handleUpdateChat(users) {
     // for 2 people
@@ -126,7 +127,7 @@ export default function Main(props) {
     props.handleSuccessfulLogout();
   }
 
-  // displays if a chat isn't open
+  // filler that displays if a chat isn't open
   const message = (
     <div className="main-filler">
       <img src={logo}></img>

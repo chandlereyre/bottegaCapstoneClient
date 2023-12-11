@@ -12,6 +12,9 @@ export default function ChatList({ handleUpdateChat, chatList, getChats }) {
     newMessage ? getChats() : null;
   }
 
+  /**
+   * Maps list of chats passed as a prop to return rendered ChatPreview components
+   */
   const chats = Object.keys(chatList).map((chat) => {
     return (
       <ChatPreview

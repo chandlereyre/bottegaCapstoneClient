@@ -24,6 +24,10 @@ export default function chatModal({ toggleModal, setModal, modal }) {
     setRecipientArr([...tempArray]);
   }
 
+  /**
+   * Adds recipient to the new chat
+   * Checks if the user exists, and if the user is already present in the array of recipients
+   */
   function addRecipient() {
     let add = true;
     for (var i = 0; i < recipientArr.length; i++) {

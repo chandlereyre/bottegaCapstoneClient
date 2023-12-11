@@ -247,7 +247,7 @@ export default function Chat({
 
   /**
    * Generates a name for a group chat
-   * @returns A string for this group chat's header
+   * @returns a string for this group chat's header
    */
   function groupChatName() {
     let chatName = "Chat with ";
